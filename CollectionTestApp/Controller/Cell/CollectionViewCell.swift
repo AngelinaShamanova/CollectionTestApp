@@ -11,23 +11,16 @@ class CollectionViewCell: UICollectionViewCell {
     
     static var cellId = "cellId"
     
-    var imageView: UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.image = UIImage(named: "xl.png")
-        return img
-    }()
+    var imageView = ImageView()
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "XL-объявление"
         label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = .boldSystemFont(ofSize: 22)
         label.textAlignment = .left
         return label
     }()
     var detailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пользователи смогут посмотреть фотографии, описание и телефон прямо из результатов поиска."
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 16)
         label.textAlignment = .left
@@ -36,7 +29,6 @@ class CollectionViewCell: UICollectionViewCell {
     var priceLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
-        label.text = "350 ₽"
         label.textAlignment = .left
         return label
     }()
@@ -78,7 +70,7 @@ class CollectionViewCell: UICollectionViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: 15).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -25).isActive = true
         
         selectedImageView.translatesAutoresizingMaskIntoConstraints = false
         selectedImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
@@ -88,13 +80,20 @@ class CollectionViewCell: UICollectionViewCell {
         
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -25).isActive = true
+        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -15).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 15).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
         priceLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: 15).isActive = true
+    }
+    
+    func configure(with list: List) {
+        self.titleLabel.text = list.title
+        self.detailLabel.text = list.description
+        self.priceLabel.text = list.price
+        self.imageView.fetchImage(with: list.icon.the52X52)
     }
     
 }

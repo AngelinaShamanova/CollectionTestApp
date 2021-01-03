@@ -9,13 +9,21 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var model: Model? = nil
     var activityIndicator = UIActivityIndicatorView()
     var collectionView: UICollectionView!
-
+    let networkService = NetworkService()
+    let url = "https://raw.githubusercontent.com/avito-tech/internship/main/result.json"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
+        self.networkService.request(urlString: url) { [weak self] (model, error) in
+            model?.result.list.map({ _ in
+                self?.model = model
+                self?.collectionView.reloadData()
+            })
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -26,10 +34,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //MARK: - Collection View Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        return model?.result.list.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.cellId, for: indexPath) as! CollectionViewCell
+        
+        guard let list = model?.result.list[indexPath.item] else { return cell }
+        
+        cell.configure(with: list)
         
         return cell
     }

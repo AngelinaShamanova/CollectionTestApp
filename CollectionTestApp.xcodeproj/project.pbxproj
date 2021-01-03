@@ -19,6 +19,7 @@
 		FA8F672525A1D15B0012486C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F672425A1D15B0012486C /* NetworkService.swift */; };
 		FA8F672825A1D1740012486C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F672725A1D1740012486C /* Model.swift */; };
 		FA8F672B25A1D7CD0012486C /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8F672A25A1D7CD0012486C /* checkmark.png */; };
+		FA8F673525A1ECB10012486C /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F673425A1ECB10012486C /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +34,10 @@
 		FA8F66FD25A1BCE20012486C /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		FA8F670025A1C3390012486C /* xl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xl.png; sourceTree = "<group>"; };
 		FA8F671425A1CAEE0012486C /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		FA8F671725A1CE1C0012486C /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		FA8F672425A1D15B0012486C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FA8F672725A1D1740012486C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FA8F672A25A1D7CD0012486C /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		FA8F673425A1ECB10012486C /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				FA8F66CC25A108B80012486C /* CollectionTestApp */,
-				FA8F671A25A1CEA50012486C /* JSON Server */,
 				FA8F671925A1CE8B0012486C /* Supporting Files */,
 				FA8F671825A1CE3F0012486C /* Images */,
 				FA8F66CB25A108B80012486C /* Products */,
@@ -72,6 +72,7 @@
 		FA8F66CC25A108B80012486C /* CollectionTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA93C5F825A1F88700605BAA /* Custom View */,
 				FA8F671B25A1CEB40012486C /* Controller */,
 				FA8F672425A1D15B0012486C /* NetworkService.swift */,
 				FA8F672725A1D1740012486C /* Model.swift */,
@@ -100,14 +101,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FA8F671A25A1CEA50012486C /* JSON Server */ = {
-			isa = PBXGroup;
-			children = (
-				FA8F671725A1CE1C0012486C /* data.json */,
-			);
-			path = "JSON Server";
-			sourceTree = "<group>";
-		};
 		FA8F671B25A1CEB40012486C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +126,14 @@
 				FA8F66F725A141A50012486C /* CollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA93C5F825A1F88700605BAA /* Custom View */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F673425A1ECB10012486C /* ImageView.swift */,
+			);
+			path = "Custom View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +214,7 @@
 				FA8F66CE25A108B80012486C /* AppDelegate.swift in Sources */,
 				FA8F671525A1CAEE0012486C /* FooterView.swift in Sources */,
 				FA8F672525A1D15B0012486C /* NetworkService.swift in Sources */,
+				FA8F673525A1ECB10012486C /* ImageView.swift in Sources */,
 				FA8F66F825A141A50012486C /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

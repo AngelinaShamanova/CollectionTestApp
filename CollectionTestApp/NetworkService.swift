@@ -22,8 +22,8 @@ class NetworkService {
                 guard let data = data else { return }
                 
                 do {
-                    let news = try JSONDecoder().decode(Model.self, from: data)
-                    completion(news, nil)
+                    let model = try JSONDecoder().decode(Model.self, from: data)
+                    completion(model, nil)
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)
                     completion(nil, jsonError)
