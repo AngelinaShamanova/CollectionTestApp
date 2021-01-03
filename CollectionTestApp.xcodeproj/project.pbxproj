@@ -20,10 +20,11 @@
 		FA8F672825A1D1740012486C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F672725A1D1740012486C /* Model.swift */; };
 		FA8F672B25A1D7CD0012486C /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8F672A25A1D7CD0012486C /* checkmark.png */; };
 		FA8F673525A1ECB10012486C /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8F673425A1ECB10012486C /* ImageView.swift */; };
+		FA93C5FC25A203BA00605BAA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93C5FB25A203BA00605BAA /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA8F66CA25A108B80012486C /* AdApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8F66CA25A108B80012486C /* CollectionTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8F66CD25A108B80012486C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA8F66D125A108B80012486C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA8F66D625A108BC0012486C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		FA8F672725A1D1740012486C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FA8F672A25A1D7CD0012486C /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		FA8F673425A1ECB10012486C /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		FA93C5FB25A203BA00605BAA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				FA8F66CC25A108B80012486C /* CollectionTestApp */,
+				FA93C60225A21DD900605BAA /* Network Service */,
+				FA93C5FA25A203A600605BAA /* Extensions */,
 				FA8F671925A1CE8B0012486C /* Supporting Files */,
 				FA8F671825A1CE3F0012486C /* Images */,
 				FA8F66CB25A108B80012486C /* Products */,
@@ -64,7 +68,7 @@
 		FA8F66CB25A108B80012486C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA8F66CA25A108B80012486C /* AdApp.app */,
+				FA8F66CA25A108B80012486C /* CollectionTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,10 +76,9 @@
 		FA8F66CC25A108B80012486C /* CollectionTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA93C5F825A1F88700605BAA /* Custom View */,
+				FA93C60325A21DF400605BAA /* Model */,
+				FA93C60425A21E0B00605BAA /* View */,
 				FA8F671B25A1CEB40012486C /* Controller */,
-				FA8F672425A1D15B0012486C /* NetworkService.swift */,
-				FA8F672725A1D1740012486C /* Model.swift */,
 			);
 			path = CollectionTestApp;
 			sourceTree = "<group>";
@@ -105,19 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				FA8F66D125A108B80012486C /* ViewController.swift */,
-				FA8F671C25A1CEBD0012486C /* View */,
-				FA8F671D25A1CECA0012486C /* Cell */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		FA8F671C25A1CEBD0012486C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FA8F671425A1CAEE0012486C /* FooterView.swift */,
-				FA8F66FA25A1BA9D0012486C /* HeaderView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		FA8F671D25A1CECA0012486C /* Cell */ = {
@@ -136,12 +128,48 @@
 			path = "Custom View";
 			sourceTree = "<group>";
 		};
+		FA93C5FA25A203A600605BAA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA93C5FB25A203BA00605BAA /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA93C60225A21DD900605BAA /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F672425A1D15B0012486C /* NetworkService.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		FA93C60325A21DF400605BAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F672725A1D1740012486C /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA93C60425A21E0B00605BAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F671425A1CAEE0012486C /* FooterView.swift */,
+				FA8F66FA25A1BA9D0012486C /* HeaderView.swift */,
+				FA8F671D25A1CECA0012486C /* Cell */,
+				FA93C5F825A1F88700605BAA /* Custom View */,
+			);
+			name = View;
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA8F66C925A108B80012486C /* AdApp */ = {
+		FA8F66C925A108B80012486C /* CollectionTestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA8F66DE25A108BC0012486C /* Build configuration list for PBXNativeTarget "AdApp" */;
+			buildConfigurationList = FA8F66DE25A108BC0012486C /* Build configuration list for PBXNativeTarget "CollectionTestApp" */;
 			buildPhases = (
 				FA8F66C625A108B80012486C /* Sources */,
 				FA8F66C725A108B80012486C /* Frameworks */,
@@ -151,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = AdApp;
+			name = CollectionTestApp;
 			productName = AdApp;
-			productReference = FA8F66CA25A108B80012486C /* AdApp.app */;
+			productReference = FA8F66CA25A108B80012486C /* CollectionTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +211,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA8F66C925A108B80012486C /* AdApp */,
+				FA8F66C925A108B80012486C /* CollectionTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +238,7 @@
 			files = (
 				FA8F672825A1D1740012486C /* Model.swift in Sources */,
 				FA8F66FB25A1BA9D0012486C /* HeaderView.swift in Sources */,
+				FA93C5FC25A203BA00605BAA /* UIViewControllerExtension.swift in Sources */,
 				FA8F66D225A108B80012486C /* ViewController.swift in Sources */,
 				FA8F66CE25A108B80012486C /* AppDelegate.swift in Sources */,
 				FA8F671525A1CAEE0012486C /* FooterView.swift in Sources */,
@@ -399,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA8F66DE25A108BC0012486C /* Build configuration list for PBXNativeTarget "AdApp" */ = {
+		FA8F66DE25A108BC0012486C /* Build configuration list for PBXNativeTarget "CollectionTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA8F66DF25A108BC0012486C /* Debug */,

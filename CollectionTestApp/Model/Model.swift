@@ -23,14 +23,6 @@ struct List: Decodable {
     var description: String?
     var icon: Icon
     var price: String
-    var isSelected: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case id, title
-        case description = "listDescription"
-        case icon, price
-        case isSelected
-    }
 }
 
 struct Icon: Decodable {

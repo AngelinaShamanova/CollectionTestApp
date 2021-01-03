@@ -24,7 +24,6 @@ class ImageView: UIImageView {
         
         URLSession.shared.dataTask(with: imageUrl) {data, responce, error in
             
-            
             if let error = error { print(error); return }
             
             guard let data = data, let responce = responce else { return }

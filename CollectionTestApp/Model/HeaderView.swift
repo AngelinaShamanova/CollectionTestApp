@@ -9,6 +9,7 @@ import UIKit
 
 class HeaderView: UICollectionReusableView {
     
+    //MARK: - Public properties
     static let identifier = "HeaderView"
     
     var button: UIButton = {
@@ -16,7 +17,6 @@ class HeaderView: UICollectionReusableView {
         button.setImage(UIImage(named: "close.png"), for: .normal)
         return button
     }()
-    
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -26,17 +26,15 @@ class HeaderView: UICollectionReusableView {
         return label
     }()
     
-    public func configure() {
+    //MARK: - Public funcs
+    func configure() {
         backgroundColor = .clear
         addSubview(button)
         addSubview(label)
         layoutConstraints()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-    }
+    //MARK: - Private funcs
     private func layoutConstraints() {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 25).isActive = true

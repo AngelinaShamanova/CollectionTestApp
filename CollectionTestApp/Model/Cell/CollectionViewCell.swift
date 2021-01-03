@@ -9,6 +9,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    //MARK: - Public properties
     static var cellId = "cellId"
     
     var imageView = ImageView()
@@ -21,8 +22,8 @@ class CollectionViewCell: UICollectionViewCell {
     }()
     var detailLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 17)
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 16)
         label.textAlignment = .left
         return label
     }()
@@ -39,7 +40,13 @@ class CollectionViewCell: UICollectionViewCell {
         img.contentMode = .scaleAspectFit
         return img
     }()
+    var withAnimation = false {
+        didSet {
+            layoutSubviews()
+        }
+    }
     
+    //MARK: - Override funcs
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -48,12 +55,32 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if withAnimation {
+            alpha = 0
+            UIView.animate(withDuration: 0.6) {
+                self.alpha = 1
+            }
+        }
+    }
+    
+    //MARK: - Public funcs
+    func configure(with list: List) {
+        self.titleLabel.text = list.title
+        self.detailLabel.text = list.description
+        self.priceLabel.text = list.price
+        self.imageView.fetchImage(with: list.icon.the52X52)
+    }
+    
+    //MARK: - Private funcs
     private func configureUI() {
         addSubview(imageView)
         addSubview(titleLabel)
         addSubview(detailLabel)
         addSubview(priceLabel)
         addSubview(selectedImageView)
+        selectedImageView.isHidden = true
         layoutConstraints()
         backgroundColor = .systemGray5
         layer.cornerRadius = 8
@@ -79,21 +106,13 @@ class CollectionViewCell: UICollectionViewCell {
         selectedImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
         
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -15).isActive = true
+        detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
+        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -25).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceLabel.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 15).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
         priceLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: 15).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 10).isActive = true
     }
-    
-    func configure(with list: List) {
-        self.titleLabel.text = list.title
-        self.detailLabel.text = list.description
-        self.priceLabel.text = list.price
-        self.imageView.fetchImage(with: list.icon.the52X52)
-    }
-    
 }
