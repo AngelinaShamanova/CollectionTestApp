@@ -11,7 +11,7 @@ fileprivate var someView: UIView?
 
 extension UIViewController {
     
-    func showSpinner() {
+    func showLoad() {
         someView = UIView(frame: self.view.bounds)
         someView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         
@@ -22,7 +22,7 @@ extension UIViewController {
         self.view.addSubview(someView ?? UIView())
     }
     
-    func removeSpinner() {
+    func removeLoad() {
         someView?.removeFromSuperview()
         someView = nil
     }

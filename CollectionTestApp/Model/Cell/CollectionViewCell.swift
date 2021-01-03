@@ -22,7 +22,8 @@ class CollectionViewCell: UICollectionViewCell {
     }()
     var detailLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17)
+        label.font = .systemFont(ofSize: 15)
+        label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
         label.textAlignment = .left
         return label
@@ -95,9 +96,9 @@ class CollectionViewCell: UICollectionViewCell {
         imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 18).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -25).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -10).isActive = true
         
         selectedImageView.translatesAutoresizingMaskIntoConstraints = false
         selectedImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
@@ -106,13 +107,13 @@ class CollectionViewCell: UICollectionViewCell {
         selectedImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
         
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15).isActive = true
+        detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
-        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -25).isActive = true
+        detailLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: -10).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 25).isActive = true
         priceLabel.trailingAnchor.constraint(equalTo: selectedImageView.leadingAnchor, constant: 15).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 10).isActive = true
+        priceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
     }
 }

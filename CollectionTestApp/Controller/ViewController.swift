@@ -26,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             model?.result.list.map({ _ in
                 self?.model = model
                 self?.collectionView.isHidden = false
-                self?.removeSpinner()
+                self?.removeLoad()
                 self?.collectionView.reloadData()
             })
         }
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.showSpinner()
+        self.showLoad()
     }
     
     override func viewDidLayoutSubviews() {
